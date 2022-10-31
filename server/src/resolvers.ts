@@ -30,12 +30,10 @@ export const resolvers = {
     },
     deleteContact: async (
       _parent: any,
-      args: {id: number},
+      args: { id: number },
       context: ResolverContext
     ) => {
-      return await context.store.deleteContact(
-        args.id
-      );
+      return await context.store.deleteContact(args.id);
     },
   },
 };

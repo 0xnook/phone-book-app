@@ -61,7 +61,7 @@ export class ContactStore implements IContactStore {
     lastName: string,
     phone: string
   ): Promise<Contact> {
-    validateContact({firstName, lastName, phone});
+    validateContact({ firstName, lastName, phone });
     const newContact = await this.db.connect(
       async (conn: DatabasePoolConnection) => {
         return await conn.one(
@@ -82,7 +82,7 @@ export class ContactStore implements IContactStore {
     lastName: string,
     phone: string
   ): Promise<Contact> {
-    validateContact({id, firstName, lastName, phone});
+    validateContact({ id, firstName, lastName, phone });
     const editedContact = await this.db.connect(
       async (conn: DatabasePoolConnection) => {
         return await conn.one(

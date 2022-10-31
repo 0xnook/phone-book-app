@@ -5,7 +5,7 @@ declare global {
     firstName: string;
     lastName: string;
     phone: string;
-  }
+  };
 
   type Contact = {
     id: number;
@@ -15,16 +15,25 @@ declare global {
   };
 
   interface IContactStore {
-    db: DatabasePool; 
-    getContacts: () => Promise<readonly Contact[]>
-    addContact: (firstName: string, lastName: string, phone: string) => Promise<Contact>
-    editContact: (id: number, firstName: string, lastName: string, phone: string) => Promise<Contact>
-    deleteContact: (id: number) => Promise<Contact>
+    db: DatabasePool;
+    getContacts: () => Promise<readonly Contact[]>;
+    addContact: (
+      firstName: string,
+      lastName: string,
+      phone: string
+    ) => Promise<Contact>;
+    editContact: (
+      id: number,
+      firstName: string,
+      lastName: string,
+      phone: string
+    ) => Promise<Contact>;
+    deleteContact: (id: number) => Promise<Contact>;
   }
 
   type ResolverContext = {
-    store: IContactStore
-  }
+    store: IContactStore;
+  };
 }
 
 export {};

@@ -1,9 +1,19 @@
 import { useState } from "react";
 import type { Dispatch, ChangeEvent } from "react";
 
-import { Container, Typography, Button, Box, TextField, InputAdornment } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Button,
+  Box,
+  TextField,
+  InputAdornment,
+} from "@mui/material";
 
-import { Contacts as ContactsIcon, Search as SearchIcon } from "@mui/icons-material";
+import {
+  Contacts as ContactsIcon,
+  Search as SearchIcon,
+} from "@mui/icons-material";
 
 import type { Contact } from "../graphql/generated";
 import { PhoneBookContext } from "./PhoneBookContext";
@@ -20,14 +30,20 @@ function PhoneBook() {
   ];
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value)
-  }
+    setSearchTerm(e.target.value);
+  };
 
   return (
     <PhoneBookContext.Provider
-      value={{ modalOpen, setModalOpen, contactToEdit, setContactToEdit, searchTerm }}
+      value={{
+        modalOpen,
+        setModalOpen,
+        contactToEdit,
+        setContactToEdit,
+        searchTerm,
+      }}
     >
-      <Container sx={{mt: "2rem"}} maxWidth="sm">
+      <Container sx={{ mt: "2rem" }} maxWidth="sm">
         <Box
           sx={{
             display: "flex",
@@ -37,14 +53,18 @@ function PhoneBook() {
             mb: "2rem",
           }}
         >
-          <ContactsIcon fontSize="large"/>
-          <Typography sx={{fontWeight: "500"}} variant="h4">Phone Book App</Typography>
+          <ContactsIcon fontSize="large" />
+          <Typography sx={{ fontWeight: "500" }} variant="h4">
+            Phone Book App
+          </Typography>
         </Box>
 
         <Box
           sx={{ display: "flex", justifyContent: "space-between", mb: "1rem" }}
         >
-          <Typography sx={{fontWeight: "500"}} variant="h5">Contacts</Typography>
+          <Typography sx={{ fontWeight: "500" }} variant="h5">
+            Contacts
+          </Typography>
           <Button
             sx={{ textTransform: "none" }}
             variant="contained"
@@ -55,14 +75,18 @@ function PhoneBook() {
         </Box>
 
         <TextField
-          sx={{background: "white", mb: "1.5rem"}}
+          sx={{ background: "white", mb: "1.5rem" }}
           fullWidth={true}
           size="small"
           value={searchTerm}
           onInput={handleInput}
           placeholder="Search for contact by last name"
           InputProps={{
-            startAdornment: <InputAdornment position="start"><SearchIcon/></InputAdornment>,
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
           }}
         />
 
