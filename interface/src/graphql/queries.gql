@@ -1,0 +1,35 @@
+query getContacts {
+  contacts {
+    id
+    firstName
+    lastName
+    phone
+  }
+}
+
+mutation createContact($firstName: String!, $lastName: String!, $phone: String!) {
+  createContact(firstName: $firstName, lastName: $lastName, phone: $phone) {
+    id
+    firstName
+    lastName
+    phone
+  }
+}
+
+mutation editContact($id: ID!, $firstName: String!, $lastName: String!, $phone: String!) {
+  editContact(id: $id, firstName: $firstName, lastName: $lastName, phone: $phone) {
+    id
+    firstName
+    lastName
+    phone
+  }
+}
+
+mutation deleteContact($id: ID!) {
+  deleteContact(id: $id) {
+    id
+    firstName
+    lastName
+    phone
+  }
+}
